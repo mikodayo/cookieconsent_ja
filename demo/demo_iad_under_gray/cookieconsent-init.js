@@ -3,20 +3,20 @@ var cc = initCookieConsent();
 
 // example logo
 var logo = '<img src="https://fontmeme.com/permalink/220805/3b90158d204fdd325173a5c7873e7cc1.png" alt="Logo" loading="lazy" style="margin-left: -4px; margin-bottom: -5px; height: 35px">';
-var cookie = '🍪';
+var cookie = '';
 
 // run plugin with config object
 cc.run({
     current_lang : 'ja',
     autoclear_cookies : true,                   // default: false
-    cookie_name: 'cc_cookie_demo1',             // default: 'cc_cookie'
+    cookie_name: 'cc_cookie_drm',             // default: 'cc_cookie'
     cookie_expiration : 365,                    // default: 182
     page_scripts: true,                         // default: false
+    force_consent: true,
 
-    auto_language: 'document',                     // default: null; could also be 'browser' or 'document'
+    auto_language: null,                     // default: null; could also be 'browser' or 'document'
     // autorun: true,                           // default: true
     // delay: 0,                                // default: 0
-    // force_consent: false,
     // hide_from_bots: false,                   // default: false
     // remove_cookie_tables: false              // default: false
     // cookie_domain: location.hostname,        // default: current domain
@@ -53,19 +53,19 @@ cc.run({
     languages: {
         'en': {
             consent_modal: {
-                title: ' We use cookies! ',
+                title: 'We use cookies! ',
                 description: 'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
                 primary_btn: {
                     text: 'すべてのCookieを受け入れる',
                     role: 'accept_all'              // 'accept_selected' or 'accept_all'
                 },
                 secondary_btn: {
-                    text: 'Cookie設定',
+                    text: '設定',
                     role: 'settings'        // 'settings' or 'accept_necessary'
                 }
             },
             settings_modal: {
-                title: logo,
+                title: '',
                 save_settings_btn: 'Save settings',
                 accept_all_btn: 'Accept all',
                 reject_all_btn: 'Reject all',
@@ -78,7 +78,7 @@ cc.run({
                 ],
                 blocks: [
                     {
-                        title: 'Cookie usage 📢',
+                        title: 'Cookie usage',
                         description: 'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="#" class="cc-link">privacy policy</a>.'
                     }, {
                         title: 'Strictly necessary cookies',
@@ -129,7 +129,7 @@ cc.run({
         'ja': {
             consent_modal: {
                 title: ' このWEBサイトで使用するCookie ',
-                description: '当ウェブサイトは、正常な機能保持、およびゲストのウェブサイト体験を改善するためにCookieを使用しています。Cookieを受け入れるを選択してすべてのCookie設定に同意するか、Cookie設定を選択して個々の使用中のCookieの詳細をご確認ください。',
+                description: '当ウェブサイトは、正常な機能保持、およびゲストのウェブサイト体験を改善するためにCookieを使用しています。Cookieを受け入れるを選択してすべてのCookie設定に同意するか、設定を選択して個々の使用中のCookieの詳細をご確認ください。',
                 primary_btn: {
                     text: 'Cookieを受け入れる',
                     role: 'accept_all'              // 'accept_selected' or 'accept_all'
@@ -140,7 +140,7 @@ cc.run({
                 }
             },
             settings_modal: {
-                title: logo,
+                title: '',
                 save_settings_btn: '保存する',
                 accept_all_btn: 'すべて受け入れる',
                 reject_all_btn: 'すべて拒否する',
@@ -153,12 +153,12 @@ cc.run({
                 ],
                 blocks: [
                     {
-                        title: 'Cookie 設定 📢',
-                        description: '私はウェブサイトの基本的な機能を確保し、あなたのオンライン体験を向上させるためにクッキーを使用しています。各カテゴリーについては、いつでもいつでもオプトイン/アウトを選択することができます。クッキーとその他の機微なデータに関する詳細は <a href="#" class="cc-link">プライバシーポリシーへのリンク</a>をご覧ください。'
+                        title: 'Cookie 設定',
+                        description: '当ウェブサイトの基本的な機能を確保し、エンドユーザのオンライン体験を向上させるためにCookieを使用しています。各カテゴリーについては、いつでもオプトイン/アウトを選択することができます。Cookieとその他のデータに関する詳細は <a href="#" class="cc-link">プライバシーポリシーへのリンク</a>をご覧ください。'
 
                     }, {
                         title: '厳密に必要なCookie',
-                        description: 'これらのクッキーは私のウェブサイトが正常に機能するために必要不可欠です。これらのクッキーなしでは、ウェブサイトは正常に動作しません。',
+                        description: 'これらのCookieは当ウェブサイトが正常に機能するために必要不可欠です。このCookieなしでは、ウェブサイトは正常に動作しません。',
                         toggle: {
                             value: 'necessary',
                             enabled: true,
